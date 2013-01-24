@@ -16,6 +16,7 @@ vim_plugins[POWER_LINE]="https://github.com/Lokaltog/vim-powerline.git"
 vim_plugins[VIM_SURROUND]="https://github.com/tpope/vim-surround.git"
 
 IR_BLACK_COLOR="https://raw.github.com/forewer2000/dotfiles/master/colors/ir_black.vim"
+VIM_RC_FILE="https://raw.github.com/forewer2000/dotfiles/master/.vimrc"
 
 echo "Installing vim for user: $USER"
 echo "Home directory: $HOME"
@@ -100,8 +101,20 @@ function configure_colors() {
          echo "Cannot create $VIMDIR/colors"
          return
      }
-     curl -s -o "$VIMDIR/colors/ir_black.vim" $IR_BLACK_COLOR
+     curl -s -o "$VIMDIR/colors/ir_black.vim" $IR_BLACK_COLOR || {
+         echo "Cannot download ir_black.vim from $IR_BLACK_COLOR" 
+         return
+     }
 }
 
 configure_colors
 
+
+function install_vimrc() {
+   curl -s -o "$HOME/.vimrc" $VIM_RC_FILE || {
+       echo "Cannot download .vimrc from $VIM_RC_FILE"
+       return
+   }
+}
+
+install_vimrc
