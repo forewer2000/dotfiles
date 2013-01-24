@@ -88,7 +88,11 @@ function configure_commandt() {
             echo "No ruby => no command-t. (sudo apt-get install ruby)"
             return
         }
-        ruby extconf.rb 
+        ruby extconf.rb >/dev/null 2>&1 || {
+            echo &2
+            echo "You may install ruby-dev. (sudo apt-get install ruby-dev)"
+            return
+        }
         make
     )
 }
