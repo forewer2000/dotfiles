@@ -14,7 +14,7 @@ vim_plugins[VIM_SOLARIZED]="https://github.com/altercation/vim-colors-solarized.
 vim_plugins[VIM_FUGITIVE]="https://github.com/tpope/vim-fugitive.git"
 vim_plugins[POWER_LINE]="https://github.com/Lokaltog/vim-powerline.git"
 vim_plugins[VIM_SURROUND]="https://github.com/tpope/vim-surround.git"
-vim_plugins[PEP8]="https://github.com/cburroughs/pep8.py.git"
+vim_plugins[FLAKE8]="https://github.com/nvie/vim-flake8.git"
 
 IR_BLACK_COLOR="https://raw.github.com/forewer2000/dotfiles/master/colors/ir_black.vim"
 VIM_RC_FILE="https://raw.github.com/forewer2000/dotfiles/master/.vimrc"
@@ -115,6 +115,13 @@ function configure_colors() {
 configure_colors
 
 
+function flake8_deps() {
+    pip install flake8
+}
+
+flake8_deps
+
+
 function install_vimrc() {
    curl -s -o "$HOME/.vimrc" $VIM_RC_FILE || {
        echo "Cannot download .vimrc from $VIM_RC_FILE"
@@ -123,3 +130,6 @@ function install_vimrc() {
 }
 
 install_vimrc
+
+
+
