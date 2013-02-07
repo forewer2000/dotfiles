@@ -14,6 +14,7 @@ vim_plugins[VIM_SOLARIZED]="https://github.com/altercation/vim-colors-solarized.
 vim_plugins[VIM_FUGITIVE]="https://github.com/tpope/vim-fugitive.git"
 vim_plugins[POWER_LINE]="https://github.com/Lokaltog/vim-powerline.git"
 vim_plugins[VIM_SURROUND]="https://github.com/tpope/vim-surround.git"
+vim_plugins[PEP8]="https://github.com/cburroughs/pep8.py.git"
 
 IR_BLACK_COLOR="https://raw.github.com/forewer2000/dotfiles/master/colors/ir_black.vim"
 VIM_RC_FILE="https://raw.github.com/forewer2000/dotfiles/master/.vimrc"
