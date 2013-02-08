@@ -16,6 +16,7 @@ vim_plugins[POWER_LINE]="https://github.com/Lokaltog/vim-powerline.git"
 vim_plugins[VIM_SURROUND]="https://github.com/tpope/vim-surround.git"
 
 IR_BLACK_COLOR="https://raw.github.com/forewer2000/dotfiles/master/colors/ir_black.vim"
+GARY_COLOR="https://raw.github.com/garybernhardt/dotfiles/master/.vim/colors/grb256.vim"
 VIM_RC_FILE="https://raw.github.com/forewer2000/dotfiles/master/.vimrc"
 
 echo "Installing vim for user: $USER"
@@ -103,6 +104,11 @@ function configure_colors() {
      }
      curl -s -o "$VIMDIR/colors/ir_black.vim" $IR_BLACK_COLOR || {
          echo "Cannot download ir_black.vim from $IR_BLACK_COLOR" 
+         return
+     }
+
+     curl -s -o "$VIMDIR/colors/grb256.vim" $IR_BLACK_COLOR || {
+         echo "Cannot download grb256.vim from $IR_BLACK_COLOR" 
          return
      }
 }

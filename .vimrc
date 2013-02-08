@@ -54,7 +54,7 @@ let mapleader=","
 " let g:solarized_termcolors=256
 :set t_Co=256
 :set background=dark
-:color ir_black
+:color grb256
 
 :set statusline=%<%f\ (%{&ft})\ %-4(%m%)%=%-19(%3l,%02c%03V%)
 let g:Powerline_symbols = 'fancy'
