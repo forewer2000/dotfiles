@@ -61,3 +61,6 @@ let g:Powerline_symbols = 'fancy'
 
 " Ignore some extensions in command-T
 :set wildignore+=*.jpg,*.gif,*.png,*.log,*.sql,*.zip,*.ico,*.tar,*.tar.gz
+
+au BufNewFile,BufRead *.dump set filetype=sql
+au BufNewFile,BufRead *.install set filetype=php
