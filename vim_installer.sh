@@ -91,7 +91,6 @@ function configure_commandt() {
             return
         }
         ruby extconf.rb >/dev/null 2>&1 || {
-            echo &2
             echo "You may install ruby-dev. (sudo apt-get install ruby-dev)"
             return
         }
@@ -122,7 +121,10 @@ configure_colors
 
 
 function flake8_deps() {
-    pip install flake8
+    pip install flake8 || {
+        echo "An error occoured, cannot install flake8"
+        return
+    }
 }
 
 flake8_deps
