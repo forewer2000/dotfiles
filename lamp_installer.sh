@@ -2,7 +2,7 @@
 
 set -e
 
-packages_to_install=('php5-cli' 'php5' 'php5-gd' 'php5-curl' 'mysql-server' 'mysql-client' 'php-pear' 'phpmyadmin')
+packages_to_install=('php5-cli' 'php5' 'php5-gd' 'php5-curl' 'mysql-server' 'mysql-client' 'php-pear' 'phpmyadmin' 'php5-dev' 'php-apc' 'apache2-threaded-dev' 'php5-intl')
 apache_modules=('rewrite.load' 'proxy.load' 'proxy_http.load' 'headers.load' 'expires.load')
 
 
@@ -35,3 +35,6 @@ pear install --alldeps phpunit/PHPUnit
 
 service apache2 restart
 
+sudo pecl install apc
+
+curl -sS https://getcomposer.org/installer | php
