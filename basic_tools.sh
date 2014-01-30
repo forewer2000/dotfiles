@@ -2,7 +2,7 @@
 
 set -e
 
-packages_to_install=('ssh' 'vim-gtk' 'build-essential' 'module-assistant', 'curl', 'python-dev', 'ruby', 'ruby-dev', 'python-pip')
+packages_to_install=('ssh' 'vim-gtk' 'build-essential' 'module-assistant' 'curl' 'python-dev' 'ruby' 'ruby-dev' 'python-pip')
 
 # install all packages
 

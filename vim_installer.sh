@@ -1,7 +1,15 @@
 #!/bin/bash
 set -e
+if [ "$(whoami)" != "root" ]; then
+    echo "You need to run with sudo on your user."
+    exit 1
+fi
 
-VIMDIR="$HOME/.vim"
+USER_HOME=$(eval echo ~${SUDO_USER})
+
+echo "USER HOME IS $USER_HOME"
+
+VIMDIR="$USER_HOME/.vim"
 PATHOGEN_URL="https://raw.github.com/tpope/vim-pathogen/master/autoload/pathogen.vim"
 
 declare -A vim_plugins
@@ -20,8 +28,8 @@ IR_BLACK_COLOR="https://raw.github.com/forewer2000/dotfiles/master/colors/ir_bla
 GARY_COLOR="https://raw.github.com/garybernhardt/dotfiles/master/.vim/colors/grb256.vim"
 VIM_RC_FILE="https://raw.github.com/forewer2000/dotfiles/master/.vimrc"
 
-echo "Installing vim for user: $USER"
-echo "Home directory: $HOME"
+echo "Installing vim for user: $SUDO_USER"
+echo "Home directory: $USER_HOME"
 
 
 if [ ! -d $VIMDIR ]; then
@@ -58,7 +66,7 @@ function install_pathogen() {
          exit 1
     }
 
-    curl -Sso ~/.vim/autoload/pathogen.vim $PATHOGEN_URL || {
+    curl -Sso $USER_HOME/.vim/autoload/pathogen.vim $PATHOGEN_URL || {
          echo "Cannot download pathohen from $PATHOGEN_URL"
          exit 1 
     }
@@ -131,7 +139,7 @@ flake8_deps
 
 
 function install_vimrc() {
-   curl -s -o "$HOME/.vimrc" $VIM_RC_FILE || {
+   curl -s -o "$USER_HOME/.vimrc" $VIM_RC_FILE || {
        echo "Cannot download .vimrc from $VIM_RC_FILE"
        return
    }
@@ -139,5 +147,6 @@ function install_vimrc() {
 
 install_vimrc
 
-
+chown $SUDO_USER:$SUDO_USER $USER_HOME/.vimrc
+chown -R $SUDO_USER:$SUDO_USER $USER_HOME/.vim/
 
