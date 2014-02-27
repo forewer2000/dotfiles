@@ -2,7 +2,7 @@
 
 set -e
 
-packages_to_install=('ssh' 'vim-gtk' 'build-essential' 'module-assistant' 'curl' 'python-dev' 'ruby' 'ruby-dev' 'python-pip')
+packages_to_install=('ssh' 'vim-gtk' 'build-essential' 'module-assistant' 'curl' 'python-dev' 'ruby' 'ruby-dev' 'python-pip', 'ipython')
 
 # install all packages
 
@@ -17,4 +17,5 @@ do
     }
 done
 
-
+echo "Did you know that there's a nice tool called ipython? "
+echo "you should use it!!!"
