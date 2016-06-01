@@ -20,7 +20,7 @@ tpl=$"<VirtualHost *:80>
     ServerAlias ${siteDomain}
     ServerName ${siteDomain}
 <Directory /var/www/${siteDomain}/www>
-    Options -Indexes FollowSymLinks MultiViews
+    Options  FollowSymLinks MultiViews
     AllowOverride All
     Order allow,deny
     allow from all
@@ -31,7 +31,7 @@ CustomLog /var/log/apache2/${siteDomain}-access.log combined
 </VirtualHost>
 "
 
-echo "$tpl" > /etc/apache2/sites-enabled/${siteDomain}
+echo "$tpl" > /etc/apache2/sites-enabled/${siteDomain}.conf
 
 # Create site directories and symlinks
 
